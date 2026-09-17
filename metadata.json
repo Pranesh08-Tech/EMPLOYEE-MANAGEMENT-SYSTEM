@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Employee Management System",
+  "description": "Full-stack Employee Management System with CRUD operations, search, filters, validation, and analytics dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

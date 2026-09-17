@@ -1,0 +1,210 @@
+{
+  "info": {
+    "name": "Employee Management System API Collection",
+    "description": "Comprehensive REST API test suite for Employee Management System college project demonstration.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Create Employee (Valid)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"employee_id\": \"EMP-1008\",\n  \"first_name\": \"Siddharth\",\n  \"last_name\": \"Verma\",\n  \"email\": \"siddharth.v@techcorp.com\",\n  \"phone\": \"+91 98765 00001\",\n  \"department\": \"Engineering\",\n  \"designation\": \"Backend Developer\",\n  \"salary\": 78000,\n  \"joining_date\": \"2024-03-15\",\n  \"address\": \"Sector 14, Gurgaon, Haryana\",\n  \"status\": \"Active\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/employees/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "employees", ""]
+        }
+      }
+    },
+    {
+      "name": "2. Get All Employees",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/employees/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "employees", ""]
+        }
+      }
+    },
+    {
+      "name": "3. Get Single Employee by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/employees/1/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "employees", "1", ""]
+        }
+      }
+    },
+    {
+      "name": "4. Update Employee (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Aarav\",\n  \"last_name\": \"Sharma\",\n  \"designation\": \"Lead Full Stack Architect\",\n  \"salary\": 95000,\n  \"status\": \"Active\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/employees/1/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "employees", "1", ""]
+        }
+      }
+    },
+    {
+      "name": "5. Delete Employee",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/employees/1/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "employees", "1", ""]
+        }
+      }
+    },
+    {
+      "name": "6. Invalid Employee ID (404 Test)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/employees/9999/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "employees", "9999", ""]
+        }
+      }
+    },
+    {
+      "name": "7. Missing Required Fields (400 Test)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Neha\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/employees/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "employees", ""]
+        }
+      }
+    },
+    {
+      "name": "8. Duplicate Employee ID (400 Test)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"employee_id\": \"EMP-1001\",\n  \"first_name\": \"Duplicate\",\n  \"last_name\": \"User\",\n  \"email\": \"unique_test@example.com\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/employees/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "employees", ""]
+        }
+      }
+    },
+    {
+      "name": "9. Duplicate Email (400 Test)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"employee_id\": \"EMP-9999\",\n  \"first_name\": \"Duplicate\",\n  \"last_name\": \"User\",\n  \"email\": \"aarav.sharma@techcorp.com\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/employees/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "employees", ""]
+        }
+      }
+    },
+    {
+      "name": "10. Invalid Email Format (400 Test)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"invalid-email-string\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/employees/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "employees", ""]
+        }
+      }
+    },
+    {
+      "name": "11. Invalid Salary Range (400 Test)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"salary\": -5000\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/employees/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "employees", ""]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    }
+  ]
+}
